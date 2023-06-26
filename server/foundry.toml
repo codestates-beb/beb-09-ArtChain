@@ -1,0 +1,3 @@
+[profile.default]
+src = "contract" # 컴파일할 solidity 파일이 위치한 경로
+out = "out" # 컴파일 결과
