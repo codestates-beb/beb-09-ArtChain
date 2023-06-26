@@ -1,10 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Autocomplete, TextField } from '@mui/material';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import WalletIcon from '@mui/icons-material/Wallet';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+import Web3 from 'web3';
 
 export const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [web3, setWeb3] = useState();
+
+  const [account, setAccount] = useState('');
+
+  useEffect(() => {
+    const loggedInAccount = localStorage.getItem('isLoggedIn');
+
+    if (loggedInAccount) {
+      setIsLoggedIn(true);
+      setAccount(loggedInAccount);
+    }
+
+    if (typeof window.ethereum !== 'undefined') {
+      try {
+        const web = new Web3(window.ethereum);
+        setWeb3(web);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }, []);
+
+  const connectWallet = async () => {
+    await window.ethereum
+      .request({
+        method: 'eth_requestAccounts',
+      })
+      .then((res) => {
+        setAccount(res[0]);
+        setIsLoggedIn(true);
+        localStorage.setItem('isLoggedIn', res[0]);
+
+        console.log(isLoggedIn);
+      })
+
+      .catch((e) => console.log(e));
+  };
+
   return (
     <HeaderView>
       <Logo>
@@ -30,13 +72,19 @@ export const Header = () => {
         <Link to="/create">
           <Menu>Create</Menu>
         </Link>
-        <Link to={`/users/:username`}>
-          <Menu>My Page</Menu>
-        </Link>
       </MenuView>
 
       <IconView>
-        <WalletIcon />
+        <Link to={`/users/:username`}>
+          <AccountCircleIcon />
+        </Link>
+      </IconView>
+      <IconView>
+        <WalletIcon
+          onClick={() => {
+            connectWallet();
+          }}
+        />
       </IconView>
     </HeaderView>
   );
@@ -79,4 +127,5 @@ const Menu = styled.div`
 
 const IconView = styled.div`
   margin-left: 20px;
+  cursor: pointer;
 `;
