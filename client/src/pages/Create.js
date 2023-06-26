@@ -1,12 +1,13 @@
 import React from 'react';
 import { Header } from '../components/Header';
 
-const MainPage = () => {
+const Create = () => {
   return (
     <div>
       <Header />
+      Create
     </div>
   );
 };
 
-export default MainPage;
+export default Create;
