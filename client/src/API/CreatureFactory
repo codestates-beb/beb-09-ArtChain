@@ -1,0 +1,10 @@
+const Web3 = require('../../node_modules/web3');
+const CreatureFactoryABI = require("../../../opensea-creatures-master/out/CreatureFactory.sol/CreatureFactory.json").abi;
+// console.log(CreatureFactoryABI);
+
+const web3 = new Web3("https://sepolia.infura.io/v3/34c821056a4443e69c731a619f706828");
+const CreatureFactoryAddress = "0x42B08e28Ec45042e211bbC549F5D54C18576f1A5";
+
+const CreatureFactoryInstance = new web3.eth.Contract(CreatureFactoryABI,CreatureFactoryAddress);
+
+console.log(CreatureFactoryInstance);

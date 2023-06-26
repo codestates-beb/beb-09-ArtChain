@@ -1,0 +1,1256 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_optionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_optionId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "canMint",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "factorySchemaName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_optionId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_toAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "numOptions",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "supportsFactoryInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_optionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "uri",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "balanceOf(address,uint256)": "00fdd58e",
+    "canMint(uint256,uint256)": "22e1dea9",
+    "factorySchemaName()": "45df5787",
+    "mint(uint256,address,uint256,bytes)": "c77b66c2",
+    "name()": "06fdde03",
+    "numOptions()": "4b97aed9",
+    "supportsFactoryInterface()": "c311c523",
+    "symbol()": "95d89b41",
+    "uri(uint256)": "0e89341c"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_optionId\",\"type\":\"uint256\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_optionId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"canMint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"factorySchemaName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_optionId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_toAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"numOptions\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"supportsFactoryInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_optionId\",\"type\":\"uint256\"}],\"name\":\"uri\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"canMint(uint256,uint256)\":{\"details\":\"Returns whether the option ID can be minted. Can return false if the developer wishes to restrict a total supply per option ID (or overall).\"},\"mint(uint256,address,uint256,bytes)\":{\"details\":\"Mints asset(s) in accordance to a specific address with a particular \\\"option\\\". This should be callable only by the contract owner or the owner's Wyvern Proxy (later universal login will solve this). Options should also be delineated 0 - (numOptions() - 1) for convenient indexing.\",\"params\":{\"_amount\":\"amount of the option to mint\",\"_data\":\"Extra data to pass during safeTransferFrom\",\"_optionId\":\"the option id\",\"_toAddress\":\"address of the future owner of the asset(s)\"}},\"uri(uint256)\":{\"details\":\"Returns a URL specifying some metadata about the option. This metadata can be of the same structure as the ERC1155 metadata.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"factorySchemaName()\":{\"notice\":\"Indicates the Wyvern schema name for assets in this lootbox, e.g. \\\"ERC1155\\\"\"},\"name()\":{\"notice\":\"Returns the name of this factory.\"},\"numOptions()\":{\"notice\":\"Number of options the factory supports.\"},\"supportsFactoryInterface()\":{\"notice\":\"Indicates that this is a factory contract. Ideally would use EIP 165 supportsInterface()\"},\"symbol()\":{\"notice\":\"Returns the symbol for this factory.\"}},\"notice\":\"This is a generic factory contract that can be used to mint tokens. The configuration for minting is specified by an _optionId, which can be used to delineate various ways of minting.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/IFactoryERC1155.sol\":\"FactoryERC1155\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@ensdomains/=node_modules/@ensdomains/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@solidity-parser/=node_modules/truffle-flattener/node_modules/@solidity-parser/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":truffle/=node_modules/truffle/\",\":wyvern-js/=node_modules/wyvern-js/\"]},\"sources\":{\"contracts/IFactoryERC1155.sol\":{\"keccak256\":\"0x5e95a8d8fbbb400eb76984169fbe954b7e568e4232cbf84e8e26e16cc4958087\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://989fb27148e852186a502c08e36f6ec856c34105f4fe96d8173766876adf0d1f\",\"dweb:/ipfs/QmQGx552cLu4ndBKa7z6f5LEP6xCJkg4UTavUGaCGRofA5\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_optionId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "balanceOf",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_optionId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_amount",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "canMint",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "factorySchemaName",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_optionId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "_toAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_data",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "mint"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "name",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "numOptions",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "supportsFactoryInterface",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "symbol",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_optionId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "uri",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "canMint(uint256,uint256)": {
+            "details": "Returns whether the option ID can be minted. Can return false if the developer wishes to restrict a total supply per option ID (or overall)."
+          },
+          "mint(uint256,address,uint256,bytes)": {
+            "details": "Mints asset(s) in accordance to a specific address with a particular \"option\". This should be callable only by the contract owner or the owner's Wyvern Proxy (later universal login will solve this). Options should also be delineated 0 - (numOptions() - 1) for convenient indexing.",
+            "params": {
+              "_amount": "amount of the option to mint",
+              "_data": "Extra data to pass during safeTransferFrom",
+              "_optionId": "the option id",
+              "_toAddress": "address of the future owner of the asset(s)"
+            }
+          },
+          "uri(uint256)": {
+            "details": "Returns a URL specifying some metadata about the option. This metadata can be of the same structure as the ERC1155 metadata."
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "factorySchemaName()": {
+            "notice": "Indicates the Wyvern schema name for assets in this lootbox, e.g. \"ERC1155\""
+          },
+          "name()": {
+            "notice": "Returns the name of this factory."
+          },
+          "numOptions()": {
+            "notice": "Number of options the factory supports."
+          },
+          "supportsFactoryInterface()": {
+            "notice": "Indicates that this is a factory contract. Ideally would use EIP 165 supportsInterface()"
+          },
+          "symbol()": {
+            "notice": "Returns the symbol for this factory."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@ensdomains/=node_modules/@ensdomains/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@solidity-parser/=node_modules/truffle-flattener/node_modules/@solidity-parser/",
+        ":eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        ":truffle/=node_modules/truffle/",
+        ":wyvern-js/=node_modules/wyvern-js/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/IFactoryERC1155.sol": "FactoryERC1155"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/IFactoryERC1155.sol": {
+        "keccak256": "0x5e95a8d8fbbb400eb76984169fbe954b7e568e4232cbf84e8e26e16cc4958087",
+        "urls": [
+          "bzz-raw://989fb27148e852186a502c08e36f6ec856c34105f4fe96d8173766876adf0d1f",
+          "dweb:/ipfs/QmQGx552cLu4ndBKa7z6f5LEP6xCJkg4UTavUGaCGRofA5"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/IFactoryERC1155.sol",
+    "id": 2093,
+    "exportedSymbols": {
+      "FactoryERC1155": [
+        2092
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:2613:8",
+    "nodes": [
+      {
+        "id": 2021,
+        "nodeType": "PragmaDirective",
+        "src": "33:23:8",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ]
+      },
+      {
+        "id": 2092,
+        "nodeType": "ContractDefinition",
+        "src": "259:2386:8",
+        "nodes": [
+          {
+            "id": 2028,
+            "nodeType": "FunctionDefinition",
+            "src": "347:54:8",
+            "nodes": [],
+            "documentation": {
+              "id": 2023,
+              "nodeType": "StructuredDocumentation",
+              "src": "290:52:8",
+              "text": " Returns the name of this factory."
+            },
+            "functionSelector": "06fdde03",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "name",
+            "nameLocation": "356:4:8",
+            "parameters": {
+              "id": 2024,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "360:2:8"
+            },
+            "returnParameters": {
+              "id": 2027,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2026,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2028,
+                  "src": "386:13:8",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2025,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "386:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "385:15:8"
+            },
+            "scope": 2092,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 2034,
+            "nodeType": "FunctionDefinition",
+            "src": "467:56:8",
+            "nodes": [],
+            "documentation": {
+              "id": 2029,
+              "nodeType": "StructuredDocumentation",
+              "src": "407:55:8",
+              "text": " Returns the symbol for this factory."
+            },
+            "functionSelector": "95d89b41",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "symbol",
+            "nameLocation": "476:6:8",
+            "parameters": {
+              "id": 2030,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "482:2:8"
+            },
+            "returnParameters": {
+              "id": 2033,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2032,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2034,
+                  "src": "508:13:8",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2031,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "508:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "507:15:8"
+            },
+            "scope": 2092,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 2040,
+            "nodeType": "FunctionDefinition",
+            "src": "592:54:8",
+            "nodes": [],
+            "documentation": {
+              "id": 2035,
+              "nodeType": "StructuredDocumentation",
+              "src": "529:58:8",
+              "text": " Number of options the factory supports."
+            },
+            "functionSelector": "4b97aed9",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "numOptions",
+            "nameLocation": "601:10:8",
+            "parameters": {
+              "id": 2036,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "611:2:8"
+            },
+            "returnParameters": {
+              "id": 2039,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2038,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2040,
+                  "src": "637:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2037,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "637:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "636:9:8"
+            },
+            "scope": 2092,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 2050,
+            "nodeType": "FunctionDefinition",
+            "src": "828:106:8",
+            "nodes": [],
+            "documentation": {
+              "id": 2041,
+              "nodeType": "StructuredDocumentation",
+              "src": "652:171:8",
+              "text": " @dev Returns whether the option ID can be minted. Can return false if the developer wishes to\n restrict a total supply per option ID (or overall)."
+            },
+            "functionSelector": "22e1dea9",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "canMint",
+            "nameLocation": "837:7:8",
+            "parameters": {
+              "id": 2046,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2043,
+                  "mutability": "mutable",
+                  "name": "_optionId",
+                  "nameLocation": "853:9:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2050,
+                  "src": "845:17:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2042,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "845:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2045,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "872:7:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2050,
+                  "src": "864:15:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2044,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "864:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "844:36:8"
+            },
+            "returnParameters": {
+              "id": 2049,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2048,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2050,
+                  "src": "928:4:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2047,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "928:4:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "927:6:8"
+            },
+            "scope": 2092,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 2058,
+            "nodeType": "FunctionDefinition",
+            "src": "1100:70:8",
+            "nodes": [],
+            "documentation": {
+              "id": 2051,
+              "nodeType": "StructuredDocumentation",
+              "src": "940:155:8",
+              "text": " @dev Returns a URL specifying some metadata about the option. This metadata can be of the\n same structure as the ERC1155 metadata."
+            },
+            "functionSelector": "0e89341c",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "uri",
+            "nameLocation": "1109:3:8",
+            "parameters": {
+              "id": 2054,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2053,
+                  "mutability": "mutable",
+                  "name": "_optionId",
+                  "nameLocation": "1121:9:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2058,
+                  "src": "1113:17:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2052,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1113:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1112:19:8"
+            },
+            "returnParameters": {
+              "id": 2057,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2056,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2058,
+                  "src": "1155:13:8",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2055,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1155:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1154:15:8"
+            },
+            "scope": 2092,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 2064,
+            "nodeType": "FunctionDefinition",
+            "src": "1288:65:8",
+            "nodes": [],
+            "documentation": {
+              "id": 2059,
+              "nodeType": "StructuredDocumentation",
+              "src": "1176:107:8",
+              "text": " Indicates that this is a factory contract. Ideally would use EIP 165 supportsInterface()"
+            },
+            "functionSelector": "c311c523",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "supportsFactoryInterface",
+            "nameLocation": "1297:24:8",
+            "parameters": {
+              "id": 2060,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1321:2:8"
+            },
+            "returnParameters": {
+              "id": 2063,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2062,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2064,
+                  "src": "1347:4:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2061,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1347:4:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1346:6:8"
+            },
+            "scope": 2092,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 2070,
+            "nodeType": "FunctionDefinition",
+            "src": "1458:67:8",
+            "nodes": [],
+            "documentation": {
+              "id": 2065,
+              "nodeType": "StructuredDocumentation",
+              "src": "1359:94:8",
+              "text": " Indicates the Wyvern schema name for assets in this lootbox, e.g. \"ERC1155\""
+            },
+            "functionSelector": "45df5787",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "factorySchemaName",
+            "nameLocation": "1467:17:8",
+            "parameters": {
+              "id": 2066,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1484:2:8"
+            },
+            "returnParameters": {
+              "id": 2069,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2068,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2070,
+                  "src": "1510:13:8",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2067,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1510:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1509:15:8"
+            },
+            "scope": 2092,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 2082,
+            "nodeType": "FunctionDefinition",
+            "src": "2075:139:8",
+            "nodes": [],
+            "documentation": {
+              "id": 2071,
+              "nodeType": "StructuredDocumentation",
+              "src": "1531:539:8",
+              "text": " @dev Mints asset(s) in accordance to a specific address with a particular \"option\". This should be\n callable only by the contract owner or the owner's Wyvern Proxy (later universal login will solve this).\n Options should also be delineated 0 - (numOptions() - 1) for convenient indexing.\n @param _optionId the option id\n @param _toAddress address of the future owner of the asset(s)\n @param _amount amount of the option to mint\n @param _data Extra data to pass during safeTransferFrom"
+            },
+            "functionSelector": "c77b66c2",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "mint",
+            "nameLocation": "2084:4:8",
+            "parameters": {
+              "id": 2080,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2073,
+                  "mutability": "mutable",
+                  "name": "_optionId",
+                  "nameLocation": "2106:9:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2082,
+                  "src": "2098:17:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2072,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2098:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2075,
+                  "mutability": "mutable",
+                  "name": "_toAddress",
+                  "nameLocation": "2133:10:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2082,
+                  "src": "2125:18:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2074,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2125:7:8",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2077,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "2161:7:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2082,
+                  "src": "2153:15:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2076,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2153:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2079,
+                  "mutability": "mutable",
+                  "name": "_data",
+                  "nameLocation": "2193:5:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2082,
+                  "src": "2178:20:8",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2078,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2178:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2088:116:8"
+            },
+            "returnParameters": {
+              "id": 2081,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2213:0:8"
+            },
+            "scope": 2092,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 2091,
+            "nodeType": "FunctionDefinition",
+            "src": "2435:110:8",
+            "nodes": [],
+            "functionSelector": "00fdd58e",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "balanceOf",
+            "nameLocation": "2444:9:8",
+            "parameters": {
+              "id": 2087,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2084,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "2462:6:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2091,
+                  "src": "2454:14:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2083,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2454:7:8",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2086,
+                  "mutability": "mutable",
+                  "name": "_optionId",
+                  "nameLocation": "2478:9:8",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2091,
+                  "src": "2470:17:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2085,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2470:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2453:35:8"
+            },
+            "returnParameters": {
+              "id": 2090,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2089,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2091,
+                  "src": "2536:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2088,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2536:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2535:9:8"
+            },
+            "scope": 2092,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "FactoryERC1155",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 2022,
+          "nodeType": "StructuredDocumentation",
+          "src": "58:200:8",
+          "text": " This is a generic factory contract that can be used to mint tokens. The configuration\n for minting is specified by an _optionId, which can be used to delineate various\n ways of minting."
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          2092
+        ],
+        "name": "FactoryERC1155",
+        "nameLocation": "269:14:8",
+        "scope": 2093,
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 8
+}
