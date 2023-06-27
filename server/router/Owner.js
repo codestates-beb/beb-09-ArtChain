@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
   if(tokenId){
     try{
       const owner = await constract.methods.ownerOf(tokenId).call();  
-      console.log(`token: ${tokenId}, owner ${owner}`)
+      console.log(`token: ${tokenId}, owner: ${owner}`)
       return res.status(200).send({ ownerAddress: owner});
     } catch (err) { 
         console.log("Wrong TokenID.");

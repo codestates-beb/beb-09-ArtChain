@@ -6,6 +6,7 @@ const app = express();
 const searchRouter = require('./router/Search');
 const ownerRouter = require('./router/Owner');
 const mintRouter = require('./router/mint');
+// const mainRouter = require('./router/main');
 
 app.use( //cors설정
   cors({
@@ -22,6 +23,8 @@ app.use('/search', searchRouter);
 app.use('/owner', ownerRouter);
 
 app.use('/mint', mintRouter);
+
+// app.use('/', mainRouter);
 
 // 에러처리
 app.use((err, req, res, next) => { //에러발생시 처리 next(err)
