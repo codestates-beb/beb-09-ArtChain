@@ -10,7 +10,7 @@ contract Opensea is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    constructor() public ERC721("OpenSee", "OSNFT") {}
+    constructor() public ERC721("OpenSea", "Team3") {}
 
     function mintNFT(address recipient, string memory tokenURI)
         public 
