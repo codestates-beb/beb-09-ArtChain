@@ -27,12 +27,11 @@ router.post('/', async (req, res) => {
       console.log('Metadata uploaded successfully. IPFS Hash:', metadataResult.IpfsHash);
       const tokenURI = `ipfs://${metadataResult.IpfsHash}`;
   
-      const mintNft = await contract.methods.mintNFT(toAddress,tokenURI).send({from: "0xD6eCbF0A39b6Cd91b1e095cF52c058624646B875"});
-      console.log(mintNft);
-  
-      res.status(200).send('Successful!! txHash : ',mintNft);
-      
-  
+      const mintResult = contract.methods.mintNFT(toAddress,tokenURI).call()   /*.send({from: "0x3111d80ac22263D7637397a11Df5C99d0e78573D", gas: 3000000})*/
+            .then((result)=> {
+              console.log(result);
+              res.status(200).send(mintResult);
+            })
     } catch (error) {
       console.error('Error adding to IPFS:', error);
       res.status(400).send(error);
