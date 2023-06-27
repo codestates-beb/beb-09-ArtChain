@@ -5,7 +5,7 @@ const app = express();
 
 const searchRouter = require('./router/Search');
 const ownerRouter = require('./router/Owner');
-const mintRouter = 
+const mintRouter = require('./router/mint');
 
 app.use( //cors설정
   cors({
@@ -20,6 +20,8 @@ app.use(express.json()); //json으로 이루어진 Request Body를 받는다.
 app.use('/search', searchRouter);
 
 app.use('/owner', ownerRouter);
+
+app.use('/mint', mintRouter);
 
 // 에러처리
 app.use((err, req, res, next) => { //에러발생시 처리 next(err)

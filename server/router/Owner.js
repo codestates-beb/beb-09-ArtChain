@@ -6,7 +6,7 @@ const abi = require('../out/Solidity.sol/Opensea.json').abi;
 
 require('dotenv').config();
 
-router.get('/Owner', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   const url = "https://sepolia.infura.io/v3/" + process.env.INFURA_API_KEY;
   Contract.setProvider(url);
   const constract = new Contract(abi, process.env.SMARTCONTRACT_ADDRESS); 

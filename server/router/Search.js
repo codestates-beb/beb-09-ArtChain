@@ -3,11 +3,11 @@ const router = express.Router();
 const axios = require('axios');
 
 const Contract = require('web3-eth-contract');
-const abi = require('../contract/ABI');
+const abi = require('../out/Solidity.sol/Opensea.json').abi;
 
 require('dotenv').config();
 
- router.get('/Search', async (req, res, next) => {
+ router.get('/', async (req, res, next) => {
 
   const url = "https://sepolia.infura.io/v3/" + process.env.INFURA_API_KEY;
   Contract.setProvider(url);

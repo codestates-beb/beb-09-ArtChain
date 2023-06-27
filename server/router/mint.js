@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
-
+const pinataSDK = require('@pinata/sdk');
+const pinata = new pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_SECRET);
 const Contract = require('web3-eth-contract');
 const abi = require('../out/Solidity.sol/Opensea.json').abi;
 
-router.post('/mint', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
+      const url = "https://sepolia.infura.io/v3/" + process.env.INFURA_API_KEY;
+      Contract.setProvider(url);
+      const contract = new Contract(abi, process.env.SMARTCONTRACT_ADDRESS); 
       const { photoUrl, nftName, description, toAddress } = req.body;
 
       /////// 이 부분ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
@@ -21,15 +25,18 @@ router.post('/mint', async (req, res) => {
   
       const metadataResult = await pinata.pinJSONToIPFS(nftMetadata);
       console.log('Metadata uploaded successfully. IPFS Hash:', metadataResult.IpfsHash);
+      const tokenURI = `ipfs://${metadataResult.IpfsHash}`;
   
-      const mintNft = await CreatureFactoryInstance.methods.mint(0, toAddress).send({from: "0x3111d80ac22263D7637397a11Df5C99d0e78573D"});
+      const mintNft = await contract.methods.mintNFT(toAddress,tokenURI).send({from: "0xD6eCbF0A39b6Cd91b1e095cF52c058624646B875"});
       console.log(mintNft);
   
-      res.status(200).send('Successful!');
-      // 이렇게 하나씩 보내주면 해당 계좌 지갑 NFT 목록에 하나씩 추가됩니다.
+      res.status(200).send('Successful!! txHash : ',mintNft);
+      
   
     } catch (error) {
       console.error('Error adding to IPFS:', error);
       res.status(400).send(error);
     }
   });
+
+  module.exports = router;
