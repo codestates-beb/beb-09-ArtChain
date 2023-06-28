@@ -20,7 +20,8 @@ router.post('/', async (req, res) => {
 
     // 요청 Body에서 필요한 데이터들 추출하기.
     const { photoUrl, nftName, description, toAddress } = req.body;
-  
+    
+    console.log(contract);
 
     // 이미지 파일을 Pinata에 업로드 하는 코드.
     const photoResult = await pinata.pinJSONToIPFS({ url: photoUrl });
@@ -42,13 +43,13 @@ router.post('/', async (req, res) => {
     const CID = metadataResult.IpfsHash;
     const tokenURI = `ipfs://${metadataResult.IpfsHash}`;
   
-
+    console.log(contract.tokenURI(4));
     // Smart Contract를 사용하여 NFT를 발행. (Mint)
     const mintResult = contract.mintNFT(toAddress, tokenURI) //toAddress-> NFT를 수령할 주소.  tokenURI-> 새로 생성된 NFT에 대한 메타데이터 URI
       .then((result) => {
-        console.log(result);
-        res.status(200).json({ tokenId: result, CID: CID, photoCID: photoResult.IpfsHash });
+        res.status(200).json({ tokenId: mintResult, CID: CID, photoCID: photoResult.IpfsHash });
       });
+      console.log(mintResult);
   } catch (error) {
     console.error('Error adding to IPFS:', error);
     res.status(400).send(error);
