@@ -1,17 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from '../components/Header';
-import Web3 from 'web3';
 import styled from '@emotion/styled';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { NftImg, NftName } from './Market';
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
+import axios from 'axios';
 
 const MyPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [nftList, setNftList] = useState([]);
+  const [nftList, setNftList] = useState([
+    {
+      id: 1,
+      nftName: 'NFT 1',
+      description: 'This is NFT 1',
+      photoUrl: 'https://picsum.photos/200/300',
+    },
+    {
+      id: 2,
+      nftName: 'NFT 2',
+      description: 'This is NFT 2',
+      photoUrl: 'https://picsum.photos/200/300',
+    },
+    {
+      id: 3,
+      nftName: 'NFT 3',
+      description: 'This is NFT 3',
+      photoUrl: 'https://picsum.photos/200/300',
+    },
+  ]);
 
-  let contractAddr = '0x0DcF7226741313910935048A5ddAF110c6146526';
-
-  const userAddr = localStorage.getItem('isLoggedIn');
+  // const [nftList, setNftList] = useState([]);
+  // useEffect(() => {
+  //   // 서버에서 NFT 목록을 가져옵니다.
+  //   axios.get('http://localhost:8080/Owner').then((res) => {
+  //     setNftList(res.data);
+  //   });
+  // }, []);
 
   const signOut = () => {
     if (typeof window.ethereum !== 'undefined') {
@@ -49,21 +72,24 @@ const MyPage = () => {
       <RowWrapper>
         <RowTitle>My NFTs</RowTitle>
         <Row>
-          <RowItems>
-            {nftList?.map((i, idx) => (
-              <RowPic key={idx} style={{ backgroundColor: 'beige' }}>
-                {/*<NftImg src={i.tokenURI} />
-                <NftName>{i.title}</NftName> */}
-              </RowPic>
-            ))}
-          </RowItems>
+          {nftList.map((nft, index) => (
+            <NftCard key={index}>
+              <CardMedia component="img" image={nft.photoUrl} />
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  {nft.nftName}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {nft.description}
+                </Typography>
+              </CardContent>
+            </NftCard>
+          ))}
         </Row>
       </RowWrapper>
     </div>
   );
 };
-
-export default MyPage;
 
 const ProfileWrapper = styled.div`
   display: flex;
@@ -84,13 +110,6 @@ const ProfileTitle = styled.div`
   justify-content: flex-start;
 `;
 
-const Profile = styled.div`
-  margin-top: 24px;
-  font-size: 20px;
-  font-weight: 500;
-  max-width: 350px;
-`;
-
 const IconView = styled.div`
   margin-left: 20px;
   cursor: pointer;
@@ -98,41 +117,29 @@ const IconView = styled.div`
 
 const RowWrapper = styled.div`
   margin-top: 100px;
-  margin-left: 100px;
 `;
 
 const RowTitle = styled.div`
   font-size: 48px;
-  font-weight: 700;
-  display: flex;
-  justify-content: flex-start;
+  font-weight: bold;
+  margin-bottom: 10px;
 `;
 
 const Row = styled.div`
-  margin-top: 24px;
-  font-size: 20px;
-  font-weight: 500;
-  max-width: 350px;
-`;
-
-const RowItems = styled.div`
-  margin-top: 24px;
-  font-size: 20px;
-  font-weight: 500;
-  max-width: 350px;
-`;
-
-const RowPic = styled.div`
-  margin-top: 24px;
-  font-size: 20px;
-  font-weight: 500;
-  max-width: 350px;
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
-  align-items: center;
-  cursor: pointer;
 `;
+
+const NftCard = styled(Card)`
+  width: 150px;
+  margin: 10px;
+`;
+
+const Profile = styled.div`
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+`;
+
+export default MyPage;

@@ -53,7 +53,7 @@ export const Header = () => {
         <Link to="/">
           <img src="/opensea.svg" width={40} height={40} />
         </Link>
-        <Title>opensea</Title>
+        <Title>ArtChain</Title>
       </Logo>
 
       <SearchView>
