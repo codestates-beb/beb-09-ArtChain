@@ -6,6 +6,7 @@ import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
 import Market from './pages/Market';
 import Create from './pages/Create';
+import Image from './pages/img';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/create" element={<Create />} />
           <Route path="/market" element={<Market />} />
           <Route path="/users/:username" element={<MyPage />} />
+          <Route path="/img" element={<Image />} />
         </Routes>
       </div>
     </BrowserRouter>

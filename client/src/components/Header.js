@@ -3,7 +3,9 @@ import { Autocomplete, TextField } from '@mui/material';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import WalletIcon from '@mui/icons-material/Wallet';
+import CreateIcon from '@mui/icons-material/Create';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import axios from 'axios';
 
 import Web3 from 'web3';
 
@@ -12,6 +14,8 @@ export const Header = () => {
   const [web3, setWeb3] = useState();
 
   const [account, setAccount] = useState('');
+
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const loggedInAccount = localStorage.getItem('isLoggedIn');
@@ -47,6 +51,19 @@ export const Header = () => {
       .catch((e) => console.log(e));
   };
 
+  const handleSearch = () => {
+    console.log(`Searching for ${searchTerm}`);
+
+    axios
+      .post('/Search', { searchTerm })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <HeaderView>
       <Logo>
@@ -62,18 +79,20 @@ export const Header = () => {
             <TextField {...params} label={'Search items, collections, and accounts'} />
           )}
           options={[]}
+          onInputChange={(e, value) => setSearchTerm(value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSearch();
+            }
+          }}
         />
       </SearchView>
 
-      <MenuView>
-        <Link to="/market">
-          <Menu>Market</Menu>
+      <IconView>
+        <Link to={'/create'}>
+          <CreateIcon />
         </Link>
-        <Link to="/create">
-          <Menu>Create</Menu>
-        </Link>
-      </MenuView>
-
+      </IconView>
       <IconView>
         <Link to={`/users/:username`}>
           <AccountCircleIcon />
@@ -112,17 +131,6 @@ const Title = styled.div`
 const SearchView = styled.div`
   flex: 1;
   margin-left: 20px;
-`;
-
-const MenuView = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-const Menu = styled.div`
-  margin-left: 20px;
-  font-size: 16px;
-  font-weight: 700;
 `;
 
 const IconView = styled.div`

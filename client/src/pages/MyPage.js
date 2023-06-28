@@ -12,19 +12,13 @@ const MyPage = () => {
       id: 1,
       nftName: 'NFT 1',
       description: 'This is NFT 1',
-      photoUrl: 'https://picsum.photos/200/300',
+      photoUrl: 'https://ipfs.io/ipfs/QmcxckzMh85qjByvPb4MT8svdjNgjx6tttYTbEq7Ev3rVc',
     },
     {
       id: 2,
       nftName: 'NFT 2',
       description: 'This is NFT 2',
-      photoUrl: 'https://picsum.photos/200/300',
-    },
-    {
-      id: 3,
-      nftName: 'NFT 3',
-      description: 'This is NFT 3',
-      photoUrl: 'https://picsum.photos/200/300',
+      photoUrl: 'https://ipfs.io/ipfs/QmfDtxqnf2cFcf2z4on41F6xvNT9EfPL3SQU44n3HMVpeK',
     },
   ]);
 
@@ -111,8 +105,9 @@ const ProfileTitle = styled.div`
 `;
 
 const IconView = styled.div`
-  margin-left: 20px;
+  margin-left: 40px;
   cursor: pointer;
+  transform: scale(1.5);
 `;
 
 const RowWrapper = styled.div`
