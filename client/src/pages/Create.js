@@ -29,7 +29,8 @@ const Create = () => {
         }
       )
       .then((response) => {
-        console.log(response.data);
+        console.log(response.data.CID);
+        alert('NFT가 생성되었습니다.');
       })
       .catch((error) => {
         console.error(error);
