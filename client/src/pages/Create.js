@@ -5,6 +5,41 @@ import { Box, Button, TextField } from '@mui/material';
 import axios from 'axios';
 
 const Create = () => {
+  const [photoUrl, setPhotoUrl] = useState('');
+  const [nftName, setNftName] = useState('');
+  const [description, setDescription] = useState('');
+
+  const toAddress = localStorage.getItem('isLoggedIn');
+
+  function handleCreate() {
+    const confirmed = window.confirm('Mint 하시겠습니까?');
+
+    if (confirmed) {
+      axios
+        .post(
+          'http://localhost:8080/mint',
+          {
+            photoUrl,
+            nftName,
+            description,
+            toAddress,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data.CID);
+          alert('NFT가 생성되었습니다.');
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }
+
   return (
     <div>
       <Header />
@@ -13,11 +48,25 @@ const Create = () => {
           <Title>Create New Item</Title>
 
           <Box>
-            <FieldTitle>External URI</FieldTitle>
-            <TextField required fullWidth margin="dense" id="image-url"></TextField>
+            <FieldTitle>External URL</FieldTitle>
+            <TextField
+              required
+              fullWidth
+              margin="dense"
+              id="image-url"
+              value={photoUrl}
+              onChange={(e) => setPhotoUrl(e.target.value)}
+            ></TextField>
 
             <FieldTitle>Name</FieldTitle>
-            <TextField required fullWidth margin="dense" id="item-name"></TextField>
+            <TextField
+              required
+              fullWidth
+              margin="dense"
+              id="item-name"
+              value={nftName}
+              onChange={(e) => setNftName(e.target.value)}
+            ></TextField>
 
             <FieldTitle>Description</FieldTitle>
             <TextField
@@ -27,9 +76,11 @@ const Create = () => {
               fullWidth
               margin="dense"
               id="image-description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             ></TextField>
             <CreateButtonView>
-              <Button variant="contained" fullWidth size="large">
+              <Button variant="contained" fullWidth size="large" onClick={handleCreate}>
                 Create
               </Button>
             </CreateButtonView>

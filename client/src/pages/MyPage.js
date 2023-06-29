@@ -1,24 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from '../components/Header';
-import Web3 from 'web3';
 import styled from '@emotion/styled';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { NftImg, NftName } from './Market';
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
+import axios from 'axios';
 
 const MyPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [nftList, setNftList] = useState([]);
 
-  let contractAddr = '0x0DcF7226741313910935048A5ddAF110c6146526';
+  const toAddress = localStorage.getItem('isLoggedIn');
 
-  const userAddr = localStorage.getItem('isLoggedIn');
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') !== '';
+    setIsLoggedIn(isLoggedIn);
+  }, []);
 
-  const signOut = () => {
+  useEffect(() => {
+    axios
+      .get(`https://testnets-api.opensea.io/api/v1/assets?owner=${toAddress}`)
+      .then((res) => {
+        setNftList(res.data.assets);
+        console.log(res.data.assets);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  // useEffect(() => {
+  //   axios
+  //     .get('https://testnets-api.opensea.io/api/v1/assets?limit=100')
+  //     .then((res) => {
+  //       setNftList(res.data.assets);
+  //       console.log(res.data.assets);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
+
+  const logOut = () => {
     if (typeof window.ethereum !== 'undefined') {
-      setIsLoggedIn(false);
-      localStorage.setItem('isLoggedIn', '');
-
-      console.log(isLoggedIn);
+      const confirmed = window.confirm('로그아웃 하시겠습니까?');
+      if (confirmed) {
+        setIsLoggedIn(false);
+        localStorage.setItem('isLoggedIn', '');
+        //console.log(isLoggedIn);
+        window.location.reload();
+      }
     }
   };
 
@@ -30,11 +60,7 @@ const MyPage = () => {
           <ProfileTitle>
             My Page
             <IconView>
-              <LogoutIcon
-                onClick={() => {
-                  signOut();
-                }}
-              />
+              <LogoutIcon onClick={logOut} />
             </IconView>
           </ProfileTitle>
 
@@ -49,21 +75,21 @@ const MyPage = () => {
       <RowWrapper>
         <RowTitle>My NFTs</RowTitle>
         <Row>
-          <RowItems>
-            {nftList?.map((i, idx) => (
-              <RowPic key={idx} style={{ backgroundColor: 'beige' }}>
-                {/*<NftImg src={i.tokenURI} />
-                <NftName>{i.title}</NftName> */}
-              </RowPic>
-            ))}
-          </RowItems>
+          {nftList.map((nft, index) => (
+            <NftCard key={index}>
+              <NftImage component="img" image={nft.image_url} />
+              <CardContent>
+                <Typography variant="h8" fontWeight="500" component="div">
+                  {nft.name}
+                </Typography>
+              </CardContent>
+            </NftCard>
+          ))}
         </Row>
       </RowWrapper>
     </div>
   );
 };
-
-export default MyPage;
 
 const ProfileWrapper = styled.div`
   display: flex;
@@ -78,61 +104,51 @@ const ProfileView = styled.div`
 `;
 
 const ProfileTitle = styled.div`
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 700;
   display: flex;
   justify-content: flex-start;
 `;
 
-const Profile = styled.div`
-  margin-top: 24px;
-  font-size: 20px;
-  font-weight: 500;
-  max-width: 350px;
-`;
-
 const IconView = styled.div`
-  margin-left: 20px;
+  margin-left: 40px;
   cursor: pointer;
+  transform: scale(1.5);
 `;
 
 const RowWrapper = styled.div`
   margin-top: 100px;
-  margin-left: 100px;
 `;
 
 const RowTitle = styled.div`
-  font-size: 48px;
-  font-weight: 700;
-  display: flex;
-  justify-content: flex-start;
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 10px;
 `;
 
 const Row = styled.div`
-  margin-top: 24px;
-  font-size: 20px;
-  font-weight: 500;
-  max-width: 350px;
-`;
-
-const RowItems = styled.div`
-  margin-top: 24px;
-  font-size: 20px;
-  font-weight: 500;
-  max-width: 350px;
-`;
-
-const RowPic = styled.div`
-  margin-top: 24px;
-  font-size: 20px;
-  font-weight: 500;
-  max-width: 350px;
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+`;
+
+const NftCard = styled(Card)`
+  width: 180px;
+  height: 180px;
+  margin: 10px;
+  overflow-y: auto;
   cursor: pointer;
 `;
+
+const Profile = styled.div`
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+`;
+
+const NftImage = styled(CardMedia)`
+  width: 180px;
+  height: 110px;
+`;
+
+export default MyPage;

@@ -35,7 +35,7 @@
   }
   
   ul.pagination li.active a {
-    color: white;
+    color: rgba(150, 214, 31, 0.74);
   }
 
   ul.pagination li.active {
@@ -44,7 +44,7 @@
   
   ul.pagination li a:hover,
   ul.pagination li a.active {
-    color: blue;
+    color: rgb(14, 253, 161);
   }
   
   .page-selection {
