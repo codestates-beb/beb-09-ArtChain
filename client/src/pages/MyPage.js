@@ -7,35 +7,48 @@ import axios from 'axios';
 
 const MyPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [nftList, setNftList] = useState([
-    {
-      id: 1,
-      nftName: 'NFT 1',
-      description: 'This is NFT 1',
-      photoUrl: 'https://ipfs.io/ipfs/QmcxckzMh85qjByvPb4MT8svdjNgjx6tttYTbEq7Ev3rVc',
-    },
-    {
-      id: 2,
-      nftName: 'NFT 2',
-      description: 'This is NFT 2',
-      photoUrl: 'https://ipfs.io/ipfs/QmfDtxqnf2cFcf2z4on41F6xvNT9EfPL3SQU44n3HMVpeK',
-    },
-  ]);
+  const [nftList, setNftList] = useState([]);
 
-  // const [nftList, setNftList] = useState([]);
+  const toAddress = localStorage.getItem('isLoggedIn');
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') !== '';
+    setIsLoggedIn(isLoggedIn);
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://testnets-api.opensea.io/api/v1/assets?owner=${toAddress}`)
+      .then((res) => {
+        setNftList(res.data.assets);
+        console.log(res.data.assets);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   // useEffect(() => {
-  //   // 서버에서 NFT 목록을 가져옵니다.
-  //   axios.get('http://localhost:8080/Owner').then((res) => {
-  //     setNftList(res.data);
-  //   });
+  //   axios
+  //     .get('https://testnets-api.opensea.io/api/v1/assets?limit=100')
+  //     .then((res) => {
+  //       setNftList(res.data.assets);
+  //       console.log(res.data.assets);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
   // }, []);
 
-  const signOut = () => {
+  const logOut = () => {
     if (typeof window.ethereum !== 'undefined') {
-      setIsLoggedIn(false);
-      localStorage.setItem('isLoggedIn', '');
-
-      console.log(isLoggedIn);
+      const confirmed = window.confirm('로그아웃 하시겠습니까?');
+      if (confirmed) {
+        setIsLoggedIn(false);
+        localStorage.setItem('isLoggedIn', '');
+        //console.log(isLoggedIn);
+        window.location.reload();
+      }
     }
   };
 
@@ -47,11 +60,7 @@ const MyPage = () => {
           <ProfileTitle>
             My Page
             <IconView>
-              <LogoutIcon
-                onClick={() => {
-                  signOut();
-                }}
-              />
+              <LogoutIcon onClick={logOut} />
             </IconView>
           </ProfileTitle>
 
@@ -68,13 +77,10 @@ const MyPage = () => {
         <Row>
           {nftList.map((nft, index) => (
             <NftCard key={index}>
-              <CardMedia component="img" image={nft.photoUrl} />
+              <NftImage component="img" image={nft.image_url} />
               <CardContent>
-                <Typography variant="h5" component="div">
-                  {nft.nftName}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {nft.description}
+                <Typography variant="h8" fontWeight="500" component="div">
+                  {nft.name}
                 </Typography>
               </CardContent>
             </NftCard>
@@ -98,7 +104,7 @@ const ProfileView = styled.div`
 `;
 
 const ProfileTitle = styled.div`
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 700;
   display: flex;
   justify-content: flex-start;
@@ -115,26 +121,34 @@ const RowWrapper = styled.div`
 `;
 
 const RowTitle = styled.div`
-  font-size: 48px;
+  font-size: 38px;
   font-weight: bold;
   margin-bottom: 10px;
 `;
 
 const Row = styled.div`
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
 `;
 
 const NftCard = styled(Card)`
-  width: 150px;
+  width: 180px;
+  height: 180px;
   margin: 10px;
+  overflow-y: auto;
+  cursor: pointer;
 `;
 
 const Profile = styled.div`
   font-size: 18px;
   font-weight: bold;
   margin-top: 20px;
+`;
+
+const NftImage = styled(CardMedia)`
+  width: 180px;
+  height: 110px;
 `;
 
 export default MyPage;
