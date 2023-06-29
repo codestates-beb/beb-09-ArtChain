@@ -12,6 +12,11 @@ const MyPage = () => {
   const toAddress = localStorage.getItem('isLoggedIn');
 
   useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') !== '';
+    setIsLoggedIn(isLoggedIn);
+  }, []);
+
+  useEffect(() => {
     axios
       .get(`https://testnets-api.opensea.io/api/v1/assets?owner=${toAddress}`)
       .then((res) => {
@@ -25,9 +30,7 @@ const MyPage = () => {
 
   // useEffect(() => {
   //   axios
-  //     .get(
-  //       'https://testnets-api.opensea.io/api/v1/assets?limit=100'
-  //     )
+  //     .get('https://testnets-api.opensea.io/api/v1/assets?limit=100')
   //     .then((res) => {
   //       setNftList(res.data.assets);
   //       console.log(res.data.assets);
@@ -37,12 +40,15 @@ const MyPage = () => {
   //     });
   // }, []);
 
-  const signOut = () => {
+  const logOut = () => {
     if (typeof window.ethereum !== 'undefined') {
-      setIsLoggedIn(false);
-      localStorage.setItem('isLoggedIn', '');
-
-      console.log(isLoggedIn);
+      const confirmed = window.confirm('로그아웃 하시겠습니까?');
+      if (confirmed) {
+        setIsLoggedIn(false);
+        localStorage.setItem('isLoggedIn', '');
+        //console.log(isLoggedIn);
+        window.location.reload();
+      }
     }
   };
 
@@ -54,11 +60,7 @@ const MyPage = () => {
           <ProfileTitle>
             My Page
             <IconView>
-              <LogoutIcon
-                onClick={() => {
-                  signOut();
-                }}
-              />
+              <LogoutIcon onClick={logOut} />
             </IconView>
           </ProfileTitle>
 

@@ -44,7 +44,7 @@ export const Header = () => {
         setAccount(res[0]);
         setIsLoggedIn(true);
         localStorage.setItem('isLoggedIn', res[0]);
-
+        window.location.reload();
         console.log(isLoggedIn);
       })
 

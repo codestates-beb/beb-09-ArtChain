@@ -12,29 +12,32 @@ const Create = () => {
   const toAddress = localStorage.getItem('isLoggedIn');
 
   function handleCreate() {
-    // 입력받은 값을 서버로 보냅니다.
-    axios
-      .post(
-        'http://localhost:8080/mint',
-        {
-          photoUrl,
-          nftName,
-          description,
-          toAddress,
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
+    const confirmed = window.confirm('Mint 하시겠습니까?');
+
+    if (confirmed) {
+      axios
+        .post(
+          'http://localhost:8080/mint',
+          {
+            photoUrl,
+            nftName,
+            description,
+            toAddress,
           },
-        }
-      )
-      .then((response) => {
-        console.log(response.data.CID);
-        alert('NFT가 생성되었습니다.');
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data.CID);
+          alert('NFT가 생성되었습니다.');
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   }
 
   return (
