@@ -1,0 +1,53 @@
+const Web3 = require('web3');
+const axios = require('axios');
+const pinataSDK = require('@pinata/sdk');
+const pinata = new pinataSDK("6d37023b680927e0e8c6", "b13c3078407753b4cb07d26cf7609c57e378c82d0663caea480849a58f777b21");
+
+const CreatureFactoryABI = require("../../../opensea-creatures-master/out/CreatureFactory.sol/CreatureFactory.json").abi;
+const web3 = new Web3("https://sepolia.infura.io/v3/34c821056a4443e69c731a619f706828");
+const CreatureFactoryAddress = "0x42B08e28Ec45042e211bbC549F5D54C18576f1A5";
+
+const CreatureFactoryInstance = new web3.eth.Contract(CreatureFactoryABI, CreatureFactoryAddress);
+
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+const port = 8080;
+
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+app.use(express.json());
+
+// IPFS 데이터베이스에 메타데이터 추가
+app.post('/mintNft', async (req, res) => {
+  try {
+    const { photoUrl, nftName, description, toAddress } = req.body;
+
+    const photoResult = await pinata.pinJSONToIPFS({url: photoUrl});
+    console.log('Photo uploaded successfully. IPFS Hash:', photoResult.IpfsHash);
+
+    const nftMetadata = {
+      name: nftName,
+      description: description,
+      image: `ipfs://${photoResult.IpfsHash}`
+    };
+
+    const metadataResult = await pinata.pinJSONToIPFS(nftMetadata);
+    console.log('Metadata uploaded successfully. IPFS Hash:', metadataResult.IpfsHash);
+
+    const mintNft = await CreatureFactoryInstance.methods.mint(0,toAddress).call(); //컨트랙트 주소
+    console.log(mintNft); 
+
+    res.status(200).send('Successful!');
+    // 이렇게 하나씩 보내주면 해당 계좌 지갑 NFT 목록에 하나씩 추가됩니다.
+
+  } catch (error) {
+    console.error('Error adding to IPFS:', error);
+    res.status(400).send(error);
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
